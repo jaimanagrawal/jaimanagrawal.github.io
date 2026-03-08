@@ -1,3 +1,6 @@
+// ===== Mark JS as loaded so animations apply =====
+document.body.classList.add('js-loaded');
+
 // ===== NAV: add .scrolled on scroll =====
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -6,21 +9,18 @@ window.addEventListener('scroll', () => {
 
 // ===== INTERSECTION OBSERVER: animate elements on scroll =====
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // Stagger children of groups
       const delay = entry.target.dataset.delay || 0;
       setTimeout(() => {
         entry.target.classList.add('visible');
-      }, delay);
+      }, Number(delay));
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 
-// Observe all animated elements and add stagger delays
 document.querySelectorAll('[data-anim]').forEach((el, i) => {
-  // Stagger siblings within same parent
   const siblings = el.parentElement.querySelectorAll('[data-anim]');
   const index = Array.from(siblings).indexOf(el);
   el.dataset.delay = index * 120;
@@ -36,7 +36,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute('id');
       navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${id}` 
+        link.style.color = link.getAttribute('href') === `#${id}`
           ? 'var(--teal)' : '';
       });
     }
@@ -45,7 +45,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(section => sectionObserver.observe(section));
 
-// ===== SKILL TAGS: subtle entrance on hover area =====
+// ===== SKILL TAGS: stagger on hover =====
 document.querySelectorAll('.skill-group').forEach(group => {
   group.addEventListener('mouseenter', () => {
     group.querySelectorAll('.tag').forEach((tag, i) => {
