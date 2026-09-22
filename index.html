@@ -47,6 +47,16 @@
 
   /* Hero */
   .hero{padding:72px 0 56px;}
+  .hero .wrap{display:flex; align-items:center; gap:36px; flex-wrap:wrap;}
+  .hero .headshot{
+    width:132px;
+    height:132px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--line);
+    flex-shrink:0;
+  }
+  .hero .text{flex:1; min-width:260px;}
   .hero .eyebrow{
     font-family:'IBM Plex Mono',monospace;
     font-size:13px;
@@ -54,15 +64,31 @@
     margin-bottom:18px;
   }
   .hero h1{
-    font-size:clamp(28px,4.5vw,42px);
+    font-size:clamp(26px,4.2vw,38px);
     line-height:1.28;
-    max-width:15ch;
+    max-width:17ch;
   }
   .hero .sub{
     margin-top:22px;
     max-width:52ch;
     color:var(--muted);
     font-size:17px;
+  }
+  @media (max-width:560px){
+    .hero .wrap{flex-direction:column; align-items:flex-start;}
+  }
+
+  /* About */
+  .about-grid{display:flex; gap:40px; flex-wrap:wrap;}
+  .about-grid .bio{flex:1.3; min-width:260px; color:var(--muted); font-size:15px;}
+  .about-grid .edu{flex:1; min-width:240px;}
+  .edu .school{font-weight:600; font-size:16px; margin-bottom:2px;}
+  .edu .degree{font-style:italic; color:var(--muted); font-size:14.5px; margin-bottom:8px;}
+  .edu .detail{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-bottom:4px;
   }
 
   /* Section shell */
@@ -167,8 +193,10 @@
   <div class="wrap">
     <div class="name">JAIMAN AGRAWAL</div>
     <nav>
+      <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#leadership">Leadership</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -176,9 +204,29 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">Accounting · Rutgers University</div>
-    <h1>An accounting student who turns financial detail into clear, dependable decisions.</h1>
-    <p class="sub">I'm Jaiman Agrawal, a B.S. Accounting undergraduate at Rutgers University, with hands-on experience in tax research, financial reporting, and building things — from a startup's compliance research to my own e-commerce business.</p>
+    <img src="headshot.jpg" alt="Jaiman Agrawal" class="headshot">
+    <div class="text">
+      <div class="eyebrow">Accounting · Rutgers University</div>
+      <h1>An accounting student who turns financial detail into clear, dependable decisions.</h1>
+      <p class="sub">I'm Jaiman Agrawal, a B.S. Accounting undergraduate at Rutgers University, with hands-on experience in tax research, financial reporting, and building things — from a startup's compliance research to my own e-commerce business.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>ABOUT</h2>
+    <div class="about-grid">
+      <div class="bio">
+        <p>I'm drawn to the parts of accounting that most people skip past — the fine print in a filing, the reason a number doesn't tie out, the process that could run smoother. Outside of coursework, I've applied that same attention to detail running my own small e-commerce business and supporting research at Rutgers' Art Library. I'm currently building toward a career in tax, audit, or financial analysis, and I'm always open to conversations about internships and entry-level opportunities.</p>
+      </div>
+      <div class="edu">
+        <div class="school">Rutgers University</div>
+        <div class="degree">B.S. in Accounting</div>
+        <div class="detail">GPA: 3.53 · Expected May 2029</div>
+        <div class="detail">New Brunswick, NJ</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -211,6 +259,15 @@
         <span>Japanese <em>basic</em></span>
       </div>
     </div>
+
+    <div class="skill-group">
+      <div class="label">Professional</div>
+      <div class="skill-row">
+        <span>Attention to Detail <em>applied daily</em></span>
+        <span>Client-Facing Research &amp; Communication <em>applied</em></span>
+        <span>Team Leadership &amp; Instruction <em>4+ years</em></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -241,6 +298,44 @@
         <span class="meta">Sep 2025–Present</span>
       </div>
       <p>Support academic research at the Rutgers Art Library — helping patrons locate sources through library databases, maintaining catalog accuracy, and handling rare and sensitive materials.</p>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <h2>LEADERSHIP &amp; ACTIVITIES</h2>
+
+    <div class="project">
+      <div class="row1">
+        <h3>Assistant Instructor</h3>
+        <span class="meta">Aug 2018–Aug 2022</span>
+      </div>
+      <p>Kan Zen Ryu Karate-Do Kyokai, Gujarat, India. Led structured classes as a certified black belt (Dan 1), teaching technique, discipline, and safety to students of varied ages and skill levels.</p>
+    </div>
+
+    <div class="project">
+      <div class="row1">
+        <h3>Lead Organizer, Inter-School Cultural Event</h3>
+        <span class="meta">Jul 2024</span>
+      </div>
+      <p>Coordinated cross-team activities and streamlined execution for a multi-school event.</p>
+    </div>
+
+    <div class="project">
+      <div class="row1">
+        <h3>Vice-Captain, School Volleyball Team</h3>
+        <span class="meta">May 2023–May 2024</span>
+      </div>
+      <p>Supported team coordination and competitive performance.</p>
+    </div>
+
+    <div class="project">
+      <div class="row1">
+        <h3>Co-Organizer, NGO Fundraising Carnival</h3>
+        <span class="meta">Jul 2025</span>
+      </div>
+      <p>Helped raise approximately $600 for orphanage donations.</p>
     </div>
   </div>
 </section>
